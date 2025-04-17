@@ -75,6 +75,7 @@ function updateGameStatusMessage() {
 
 function updateGameBoard() {
   const grid = game.getState();
+
   const numRows = gameGrid.rows.length;
   const numCols = gameGrid.rows[0].cells.length;
 
@@ -91,6 +92,7 @@ function updateGameBoard() {
 
 document.addEventListener('keydown', (ev) => {
   const gameStatus = game.getStatus();
+
   const validKeyPressed = Game.MOVE_KEYS.includes(ev.key);
 
   if (!validKeyPressed) {

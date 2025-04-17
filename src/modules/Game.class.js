@@ -200,6 +200,8 @@ class Game {
   // #region move handlers
 
   move(key) {
+    const prevState = JSON.stringify(this._state);
+
     switch (key) {
       case 'ArrowUp':
         this.moveUp();
@@ -214,7 +216,13 @@ class Game {
         this.moveLeft();
         break;
     }
-    this.placeNewTile();
+
+    const newState = JSON.stringify(this._state);
+
+    if (prevState !== newState) {
+      this.placeNewTile();
+    }
+
     this.updateGameStatus();
   }
 
